@@ -27,4 +27,4 @@ about recipes, ingredients, and food pairings.
 ## 3 API:
 The API our team will be using for this project is The spoonacular Nutrition, Recipe, and Food API.
 It allows you to access over 380,000 recipes, thousands of ingredients, 80,000 food products, and 100,000 menu items.
-It automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients.
+It automatically calculates the nutritional information for any recipe, analyzes recipe costs, visualizes ingredient lists, finds recipes for what's in your fridge, finds recipes based on special diets, nutritional requirements, or favorite ingredients.
