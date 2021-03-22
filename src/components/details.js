@@ -16,7 +16,15 @@ const Details = () => {
       <div className="container">
         <h1>{recipe.title}</h1>
         <img src={recipe.image}/>
+        <h4>Information:</h4>
+        <div>
+          <ul>
+            <li>Ready in <b>{recipe.readyInMinutes}</b> minutes</li>
+            <li>Serves <b>{recipe.servings}</b></li>
+          </ul>
+        </div>
         <h4>Ingredients: </h4>
+
         <ul className="list-group">
         {
           recipe.extendedIngredients &&
