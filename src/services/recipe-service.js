@@ -8,9 +8,9 @@ const findRecipeByName = (name) =>
     })
       .then(response => response.json())
 const findRecipeInformationById = (id) =>
-    fetch(`https://api.spoonacular.com/recipes/${id}/information${KEY}`, {
+    fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=c4ea9fb10bea41c2b2004c68475a5c3a`, {
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       }
     })
       .then(response => response.json())
