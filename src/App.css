@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.search-img {
+  max-width: 15rem;
+}
+
+.card-size {
+  width: 18rem;
+}
