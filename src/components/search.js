@@ -45,7 +45,7 @@ const Search = () => {
         <ul className="list-group">
 
           {
-            results &&
+            results.length > 0 &&
             results.map(recipe =>
               <li className="list-group-item" key={recipe.id}>
                 <Link to={`/details/${recipe.id}`}>
@@ -55,6 +55,7 @@ const Search = () => {
             )
           }
         </ul>
+
       </div>
   )
 }
