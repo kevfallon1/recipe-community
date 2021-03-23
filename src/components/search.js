@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams, useHistory} from 'react-router-dom'
 import RecipeService from '../services/recipe-service'
+import SearchCard from "./search-card";
 
 const Search = () => {
   const {recipeName} = useParams()
@@ -42,22 +43,30 @@ const Search = () => {
           className="btn btn-primary">
           Search
         </button>
-        <ul className="list-group">
+        <br/>
+        <div className="container-fluid">
+          <div className="row">
 
-          {
-            results.length > 0 &&
-            results.map(recipe =>
-              <li className="list-group-item" key={recipe.id}>
-                <Link to={`/details/${recipe.id}`}>
-                  {recipe.title}
-                </Link>
-              </li>
-            )
-          }
-        </ul>
+            {
+              results.length > 0 &&
+              results.map(recipe =>
+                <SearchCard
+                  name={recipe.title}
+                  recipeId={recipe.id}
+                />
+              )
+            }
+          </div>
+        </div>
 
       </div>
   )
 }
 
 export default Search
+
+// <li className="list-group-item" key={recipe.id}>
+//     <Link to={`/details/${recipe.id}`}>
+// {recipe.title}
+// </Link>
+// </li>
