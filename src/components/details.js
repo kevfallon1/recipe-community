@@ -15,7 +15,7 @@ const Details = () => {
   return (
       <div className="container">
         <h1>{recipe.title}</h1>
-        <img src={recipe.image}/>
+        <img className="details-image" src={recipe.image}/>
         <h4>Information:</h4>
         <div>
           <ul>

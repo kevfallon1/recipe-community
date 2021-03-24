@@ -46,3 +46,8 @@
   margin: .5rem;
   color: black;
 }
+
+.details-image {
+  
+  max-width: 100%;
+}
