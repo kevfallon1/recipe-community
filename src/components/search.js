@@ -17,7 +17,7 @@ const Search = () => {
           return setResults(response)
         })
     }
-    console.log(results)
+
   },[recipeName])
 
   return (
