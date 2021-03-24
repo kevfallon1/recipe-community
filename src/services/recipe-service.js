@@ -26,4 +26,3 @@ const api = {
 export default api
 
 
-//https://api.spoonacular.com/rec ipes/autocomplete?number=10&query=chick&apiKey=c4ea9fb10bea41c2b2004c68475a5c3a
