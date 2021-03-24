@@ -18,7 +18,7 @@ function App() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <a className="nav-item nav-link" href="#">Home <span
-                className="sr-only"></span></a>
+                className="sr-only">(current)</span></a>
             <a className="nav-item nav-link" href="/search">Search</a>
           </div>
         </div>
