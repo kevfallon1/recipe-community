@@ -45,7 +45,7 @@ const Search = () => {
         </button>
         <br/>
         <div className="container-fluid">
-          <div className="row">
+          <div className="row justify-content-center">
 
             {
               results.length > 0 &&

@@ -13,15 +13,17 @@ const SearchCard = ({
     },[recipeId])
 
     return (
-      <div className="card card-size">
-        <img className="card-img-top search-img" src={recipe.image} alt="Card image cap"/>
-          <div className="card-body">
-            <h5 className="card-title">{recipe.title}</h5>
-            <Link to={`/details/${recipe.id}`}>
-              <button className="btn btn-primary">Info</button>
-            </Link>
+        <Link to={`/details/${recipe.id}`}>
+          <div className="card card-size">
+            <img className="card-img-top search-img" src={recipe.image} alt="Card image cap"/>
+              <div className="card-body">
+
+
+                  <h4 className="card-title">{recipe.title}</h4>
+
+              </div>
           </div>
-      </div>
+        </Link>
     )
 }
 export default SearchCard;
