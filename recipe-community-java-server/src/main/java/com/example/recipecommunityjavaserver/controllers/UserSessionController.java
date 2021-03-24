@@ -1,9 +1,12 @@
 package com.example.recipecommunityjavaserver.controllers;
 
 import com.example.recipecommunityjavaserver.models.User;
+import com.example.recipecommunityjavaserver.services.UserService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +15,8 @@ import javax.servlet.http.HttpSession;
 
 public class UserSessionController {
   List<User> users = new ArrayList<User>();
+  @Autowired
+  UserService service;
 
   @GetMapping("/api/register/{username}/{password}")
   public User register(
@@ -52,6 +57,27 @@ public class UserSessionController {
       }
     }
     return null;
+  }
+
+  @GetMapping("/api/{username}/shopping-list")
+  public User findShoppingList(@PathVariable("username") String username, HttpSession session) {
+    User currentUser = (User)
+            session.getAttribute("currentUser");
+    if (!currentUser.getUsername().isEmpty()) {
+      return service.findShoppingList(currentUser.getUsername());
+    };
+    return null;
+  }
+
+  @PostMapping("/api/{username}/shopping-list/{item}")
+  public Integer findShoppingList(@PathVariable("username") String username,
+                               @PathVariable("item") String item,HttpSession session) {
+    User currentUser = (User)
+            session.getAttribute("currentUser");
+    if (!currentUser.getUsername().isEmpty()) {
+      return service.addToShoppingList(currentUser.getUsername(), item);
+    }
+  return -1;
   }
 
 }

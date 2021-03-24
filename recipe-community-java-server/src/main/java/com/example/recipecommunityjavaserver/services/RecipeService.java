@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @Service
@@ -32,14 +33,6 @@ public class RecipeService {
     return null;
   }
 
-  public Recipe findShoppingList(String username) {
-    for (Recipe s : recipeList) {
-      if (s.getUsername().equals(username)) {
-        return s;
-      }
-    }
-    return null;
-  }
 
   public List<Recipe> findRandomRecipes(Integer limit) {
     List<Recipe> ws = new ArrayList<Recipe>();

@@ -28,11 +28,6 @@ public class RecipeController {
     return service.findRecipeById(recipeId);
   }
 
-  @GetMapping("/api/{username}/shopping-list")
-  public Recipe findShoppingList(@PathVariable("username") String username) {
-    return service.findShoppingList(username);
-  }
-
   @GetMapping("/api/recipes")
   public List<Recipe> findRandomRecipes() {
     return service.findRandomRecipes();
