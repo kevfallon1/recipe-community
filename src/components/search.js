@@ -25,24 +25,26 @@ const Search = () => {
         <h1>
           Find a recipe
         </h1>
-        <input
-          onChange={(e) => {
-            setSearchRecipe(e.target.value)
-          }}
-          className="form-control"
-          value={searchRecipe}
-        />
-        <button
-          onClick={() => {
-            if(searchRecipe) {
-              history.push(`/search/${searchRecipe}`)
-            } else {
-              history.push(`/search`)
-            }
-          }}
-          className="btn btn-primary">
-          Search
-        </button>
+        <div className="row">
+          <input
+            onChange={(e) => {
+              setSearchRecipe(e.target.value)
+            }}
+            className="form-control col-sm-10"
+            value={searchRecipe}
+          />
+          <button
+            onClick={() => {
+              if(searchRecipe) {
+                history.push(`/search/${searchRecipe}`)
+              } else {
+                history.push(`/search`)
+              }
+            }}
+            className="btn btn-dark col-sm-2">
+            Search
+          </button>
+        </div>
         <br/>
         <div className="container-fluid">
           <div className="row justify-content-center">
