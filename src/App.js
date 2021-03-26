@@ -19,7 +19,7 @@ function App() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-item nav-link" href="/home">Home <span
+            <a className="nav-item nav-link" href="/">Home <span
                 className="sr-only">(current)</span></a>
             <a className="nav-item nav-link" href="/search">Search</a>
           </div>
@@ -30,7 +30,7 @@ function App() {
       <BrowserRouter>
         <Route
           exact={true}
-          path={["/home"]}>
+          path={["/"]}>
           <Home/>
         </Route>
         <Route
