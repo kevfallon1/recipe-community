@@ -17,7 +17,7 @@ const Home = () => {
 
 
   return (
-      <Carousel>
+      <Carousel autoplay>
 
         {
           randomRecipes.map(recipe => {
