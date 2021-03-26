@@ -17,10 +17,20 @@ const findRecipeInformationById = (id) =>
       }
     })
       .then(response => response.json())
+const findRandomRecipes = () =>
+    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=3&tags=american%2Clunch%2Cdinner", {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": KEY,
+        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+      }
+    })
+    .then(response => response.json())
 
 const api = {
   findRecipeByName,
-  findRecipeInformationById
+  findRecipeInformationById,
+  findRandomRecipes
 }
 
 export default api

@@ -48,6 +48,34 @@
 }
 
 .details-image {
-  
+
   max-width: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  opacity: .3;
+}
+
+.slider-img-title {
+  background-color: transparent;
+  color: white;
+  z-index: 1;
+  position: absolute;
+  marign: auto;
+  left: 0;
+  right: 0;
+  top: 40vh;
+}
+.h1.ant-typography {
+  color:white !important;
+}
+
+Body {
+  color:white !important;
+}
+
+.recipe-slider {
+  z-index: 0;
+  position: relative;
 }

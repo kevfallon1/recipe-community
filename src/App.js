@@ -3,6 +3,8 @@ import './App.css';
 import {BrowserRouter, Route} from "react-router-dom";
 import Search from './components/search';
 import Details from "./components/details";
+import Login from "./components/login";
+import Home from './components/home'
 
 function App() {
   return (
@@ -17,17 +19,19 @@ function App() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-item nav-link" href="#">Home <span
+            <a className="nav-item nav-link" href="/home">Home <span
                 className="sr-only">(current)</span></a>
             <a className="nav-item nav-link" href="/search">Search</a>
           </div>
         </div>
       </nav>
+
+
       <BrowserRouter>
         <Route
           exact={true}
-          path={["/"]}>
-
+          path={["/home"]}>
+          <Home/>
         </Route>
         <Route
           exact={true}
@@ -38,6 +42,16 @@ function App() {
           exact={true}
           path={["/details/:recipeId"]}>
           <Details/>
+        </Route>
+        <Route
+          exact={true}
+          path={["/login"]}>
+          <Login/>
+        </Route>
+        <Route
+            exact={true}
+            path={["/register"]}>
+
         </Route>
       </BrowserRouter>
     </div>
