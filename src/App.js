@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="container-fluid">
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
-        <a className="navbar-brand" href="#">Recipe Community</a>
+        <a className="navbar-brand" href="/">Recipe Community</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false"
