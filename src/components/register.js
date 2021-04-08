@@ -14,10 +14,10 @@ const Register = () => {
       return alert("All fields are required")
     }
     UserService.createUser({
-      "firstName": firstName,
-      "lastName": lastName,
-      "username": username,
-      "password": password
+      firstName: firstName,
+      lastName: lastName,
+      username: username,
+      password: password
     }).then(response => console.log(response))
 
   }

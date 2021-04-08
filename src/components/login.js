@@ -13,8 +13,8 @@ const Login = () => {
       return alert("Both fields are required")
     }
     UserService.loginUser({
-      "username": username,
-      "password": password
+      username: username,
+      password: password
     }).then(response => console.log(response))
   }
 
