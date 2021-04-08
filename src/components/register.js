@@ -1,5 +1,6 @@
 import { Form, Input, Button, Checkbox } from 'antd';
 import React, {useState} from 'react'
+import UserService from '../services/user-service.js'
 
 const Register = () => {
 
@@ -7,6 +8,19 @@ const Register = () => {
   const [lastName, setLastName] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+
+  const register = () => {
+    if(!firstName || !lastName || !username || !password) {
+      return alert("All fields are required")
+    }
+    UserService.createUser({
+      "firstName": firstName,
+      "lastName": lastName,
+      "username": username,
+      "password": password
+    }).then(response => console.log(response))
+
+  }
 
   return (
       <div className="container">
@@ -54,7 +68,8 @@ const Register = () => {
           </div>
           <br/>
           <div>
-            <button className="btn btn-dark">Register</button>
+            <button onClick={() =>
+                register()} className="btn btn-dark">Register</button>
           </div>
 
         </div>

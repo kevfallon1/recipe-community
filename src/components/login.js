@@ -1,11 +1,22 @@
 import { Form, Input, Button, Checkbox } from 'antd';
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
+import UserService from '../services/user-service.js'
 
 const Login = () => {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+
+  const login = () => {
+    if(!username || !password) {
+      return alert("Both fields are required")
+    }
+    UserService.loginUser({
+      "username": username,
+      "password": password
+    }).then(response => console.log(response))
+  }
 
   return (
       <div className="container">
@@ -35,7 +46,9 @@ const Login = () => {
           </div>
           <br/>
           <div>
-            <button className="btn btn-dark">Sign in</button>
+            <button onClick={() =>
+              login()
+            } className="btn btn-dark">Sign in</button>
           </div>
           <Link><span className="badge badge-secondary">Forgot Password</span></Link>
           <Link to="/register"><span className="badge badge-secondary">Sign up</span></Link>

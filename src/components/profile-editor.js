@@ -1,22 +1,18 @@
 import React, {useEffect, useState} from 'react'
-import {useParams, Link} from "react-router-dom";
+import {useParams, Link, useHistory} from "react-router-dom";
+import UserService from '../services/user-service.js'
 
-const Profile = () => {
-  const {profileUserId} = useParams()
-  const [profileUser, setProfileUser] = useState({})
-
+const ProfileEditor = () => {
+  const [loggedInUser, setLoggedInUser] = useState({})
+  const history = useHistory()
   useEffect(() => {
-    if(profileUserId) {
-      //TODO Change this to UserService
-      /*
-      RecipeService.findRecipeByName(userId)
-      .then(response => {
-        console.log(response)
-        return setCurrentUser(response)
-      })
-
-       */
-  }})
+      UserService.getCurrentUser()
+        .then(user => setLoggedInUser(user))
+    console.log(loggedInUser)
+      if(!loggedInUser) {
+        history.push("/login")
+      }
+    })
 
   return (
       <div className="container">
@@ -27,14 +23,14 @@ const Profile = () => {
 
         <div className="row">
           <h3>
-            <Link to={`/profile/${profileUserId}/followers`}>
+            <Link to={`/profile/followers`}>
               <span className="followers-badge badge badge-secondary badge-lg">
                 Followers: ##
               </span>
             </Link>
           </h3>
           <h3>
-            <Link to={`/profile/${profileUserId}/following`}>
+            <Link to={`/profile/following`}>
               <span className="badge badge-secondary">
                 Following: ##
               </span>
@@ -48,4 +44,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default ProfileEditor

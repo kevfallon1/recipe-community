@@ -9,6 +9,7 @@ import Profile from "./components/profile";
 import Register from "./components/register";
 import Followers from "./components/followers";
 import Following from "./components/following";
+import ProfileEditor from "./components/profile-editor";
 
 function App() {
   return (
@@ -65,8 +66,13 @@ function App() {
         </Route>
         <Route
           exact={true}
-          path={["/profile", "/profile/:userId"]}>
+          path={["/profile/:userId"]}>
           <Profile/>
+        </Route>
+        <Route
+            exact={true}
+            path={["/profile"]}>
+          <ProfileEditor/>
         </Route>
         <Route
           exact={true}
