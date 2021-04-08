@@ -1,4 +1,4 @@
-const URL = "http://recipe-community-node-server.herokuapp.com/api"
+const URL = "https://recipe-community-node-server.herokuapp.com/api"
 
 
 export const loginUser = (user) =>
