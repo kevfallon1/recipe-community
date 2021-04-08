@@ -1,76 +1,48 @@
 import { Form, Input, Button, Checkbox } from 'antd';
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
+import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 const Login = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
   return (
       <div className="container">
-        <Form
-            {...layout}
-            name="basic"
-            initialValues={{
-              remember: true,
-            }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-        >
-          <Form.Item
-              label="Username"
-              name="username"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your username!',
-                },
-              ]}
-          >
-            <Input />
-          </Form.Item>
+        <div className="login-container">
+          <br/>
+          <h1>
+            Sign In
+          </h1>
 
-          <Form.Item
-              label="Password"
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your password!',
-                },
-              ]}
-          >
-            <Input.Password />
-          </Form.Item>
+          <div>
+            Username
+            <input className="form-control"
+              onChange={(e) => {
+                setUsername(e.target.value)
+              }}
+              value={username}/>
+          </div>
 
-          <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
-          <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
+          <div>
+            Password
+            <input className="form-control"
+              onChange={(e) => {
+                 setPassword(e.target.value)
+               }}
+               value={password}
+              type="password"/>
+          </div>
+          <br/>
+          <div>
+            <button className="btn btn-dark">Sign in</button>
+          </div>
+          <Link><span className="badge badge-secondary">Forgot Password</span></Link>
+          <Link to="/register"><span className="badge badge-secondary">Sign up</span></Link>
+        </div>
       </div>
+
+
   );
 };
 

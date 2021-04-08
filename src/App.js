@@ -5,6 +5,10 @@ import Search from './components/search';
 import Details from "./components/details";
 import Login from "./components/login";
 import Home from './components/home'
+import Profile from "./components/profile";
+import Register from "./components/register";
+import Followers from "./components/followers";
+import Following from "./components/following";
 
 function App() {
   return (
@@ -22,6 +26,12 @@ function App() {
             <a className="nav-item nav-link" href="/">Home <span
                 className="sr-only">(current)</span></a>
             <a className="nav-item nav-link" href="/search">Search</a>
+          </div>
+          <div className="navbar-nav">
+            <a className="nav-item nav-link float-right" href="/login">Login</a>
+          </div>
+          <div className="navbar-nav">
+            <a className="nav-item nav-link float-right" href="/profile">Profile</a>
           </div>
         </div>
       </nav>
@@ -51,7 +61,22 @@ function App() {
         <Route
             exact={true}
             path={["/register"]}>
-
+            <Register/>
+        </Route>
+        <Route
+          exact={true}
+          path={["/profile", "/profile/:userId"]}>
+          <Profile/>
+        </Route>
+        <Route
+          exact={true}
+          path={["/profile/:userId/followers"]}>
+          <Followers/>
+        </Route>
+        <Route
+            exact={true}
+            path={["/profile/:userId/following"]}>
+          <Following/>
         </Route>
       </BrowserRouter>
     </div>
