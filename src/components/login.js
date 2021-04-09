@@ -1,5 +1,5 @@
-import { Form, Input, Button, Checkbox } from 'antd';
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import UserService from '../services/user-service.js'
 
@@ -7,7 +7,7 @@ const Login = () => {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-
+  const history = useHistory()
   const login = () => {
     if(!username || !password) {
       return alert("Both fields are required")
@@ -15,7 +15,14 @@ const Login = () => {
     UserService.loginUser({
       username: username,
       password: password
-    }).then(response => console.log(response))
+    }).then(response => {
+      if(response){
+        history.push('/profile')
+      } else {
+        alert("Username or password incorrect")
+      }
+      console.log(response)
+    })
   }
 
   return (

@@ -1,5 +1,6 @@
 import { Form, Input, Button, Checkbox } from 'antd';
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 import UserService from '../services/user-service.js'
 
 const Register = () => {
