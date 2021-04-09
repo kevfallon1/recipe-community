@@ -4,7 +4,10 @@ const URL = "https://recipe-community-node-server.herokuapp.com/api"
 export const loginUser = (user) =>
     fetch(`${URL}/login`, {
       "method": "POST",
-      "body": JSON.stringify(user)
+      "body": JSON.stringify(user),
+      headers: {
+        'content-type': 'application/json'
+      }
     }).then(response => response.json())
 
 export const logoutUser = () =>
@@ -14,7 +17,11 @@ export const logoutUser = () =>
 
 export const createUser = (newUser) =>
     fetch(`${URL}/register`, {
-      "method": "POST"
+      "method": "POST",
+      "body": JSON.stringify(newUser),
+      headers: {
+        'content-type': 'application/json'
+      }
     }).then(response => response.json())
 
 export const getCurrentUser = () =>
