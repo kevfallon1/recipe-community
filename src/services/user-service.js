@@ -4,7 +4,7 @@ const URL = "https://recipe-community-node-server.herokuapp.com/api"
 export const loginUser = (user) =>
     fetch(`${URL}/login`, {
       "method": "POST",
-      "body": user
+      "body": JSON.stringify(user)
     }).then(response => response.json())
 
 export const logoutUser = () =>
