@@ -16,7 +16,7 @@ const Login = () => {
       username: username,
       password: password
     }).then(response => {
-      if(response){
+      if(response.length > 0){
         history.push('/profile')
       } else {
         alert("Username or password incorrect")
