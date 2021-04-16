@@ -1,21 +1,59 @@
 import React, {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 import RecipeService from '../services/recipe-service'
+import UserService from '../services/user-service'
 
 const Details = () => {
   const [recipe, setRecipe] = useState({})
+  const [loggedInUser, setLoggedInUser] = useState(null)
   const {recipeId} = useParams()
+  const history = useHistory()
+
+  const addRecipeToList = () => {
+    const newSaved = loggedInUser.savedRecipes
+    if(newSaved.includes(recipeId)) {
+      return alert("Recipe is already in your list")
+    }
+    newSaved.push(recipeId)
+    const newUser = {
+      ...loggedInUser,
+      savedRecipes: newSaved
+    }
+    UserService.updateUser(loggedInUser._id, newUser)
+      .then(user => {
+        console.log(user)
+        return setLoggedInUser(user)
+      })
+
+  }
+
   useEffect(() => {
     RecipeService.findRecipeInformationById(recipeId)
       .then(response => {
         setRecipe(response)
         console.log(response)
       })
+
+    UserService.getCurrentUser()
+      .then(user => setLoggedInUser(user[0]))
   }, [recipeId])
   return (
       <div className="container">
         <h1>{recipe.title}</h1>
         <img className="details-image" src={recipe.image}/>
+
+        {
+          loggedInUser &&
+          <div>
+            <br/>
+              <button onClick={() => addRecipeToList()}
+                      className="btn btn-primary">
+                Add to list
+              </button>
+            <br/>
+          </div>
+        }
+
         <h4>Information:</h4>
         <div>
           <ul>

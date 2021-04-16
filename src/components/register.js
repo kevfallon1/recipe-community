@@ -18,7 +18,7 @@ const Register = () => {
       firstName: firstName,
       lastName: lastName,
       username: username,
-      password: password
+      password: password,
     }).then(response => console.log(response))
 
   }

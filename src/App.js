@@ -10,8 +10,30 @@ import Register from "./components/register";
 import Followers from "./components/followers";
 import Following from "./components/following";
 import ProfileEditor from "./components/profile-editor";
+import MyList from "./components/my-list";
+import UserService from "./services/user-service";
+import {useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import DiscoverUsers from "./components/discover-users";
 
 function App() {
+  const history = useHistory()
+  const [loggedInUser, setLoggedInUser] = useState(null)
+  useEffect(() => {
+    UserService.getCurrentUser()
+      .then(user => {
+        console.log(user)
+        setLoggedInUser(user)
+      })
+  },[])
+  const logoutUser = () => {
+    UserService.logoutUser()
+    .then(response => {
+      setLoggedInUser(null)
+    })
+    history.push("/")
+  }
+
   return (
     <div className="container-fluid">
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -28,12 +50,38 @@ function App() {
                 className="sr-only">(current)</span></a>
             <a className="nav-item nav-link" href="/search">Search</a>
           </div>
+          {
+            !loggedInUser &&
+            <div className="navbar-nav">
+              <a className="nav-item nav-link float-right"
+                 href="/login">Login</a>
+            </div>
+          }
+          {
+            loggedInUser &&
+            <div className="navbar-nav">
+              <a className="nav-item nav-link float-right" href="/profile">Profile</a>
+            </div>
+          }
+          {
+            loggedInUser &&
+            <div className="navbar-nav">
+              <a className="nav-item nav-link float-right" href="/mylist">My
+                List</a>
+            </div>
+          }
+
           <div className="navbar-nav">
-            <a className="nav-item nav-link float-right" href="/login">Login</a>
+            <a className="nav-item nav-link float-right" href="/discover-users">Discover Users</a>
           </div>
-          <div className="navbar-nav">
-            <a className="nav-item nav-link float-right" href="/profile">Profile</a>
-          </div>
+
+          {
+            loggedInUser &&
+            <div className="navbar-nav">
+              <a onClick={logoutUser}
+                  className="nav-item nav-link float-right">Logout</a>
+            </div>
+          }
         </div>
       </nav>
 
@@ -83,6 +131,16 @@ function App() {
             exact={true}
             path={["/profile/:userId/following"]}>
           <Following/>
+        </Route>
+        <Route
+          exact={true}
+          path={["/mylist"]}>
+          <MyList/>
+        </Route>
+        <Route
+          exact={true}
+          path={["/discover-users"]}>
+          <DiscoverUsers/>
         </Route>
       </BrowserRouter>
     </div>

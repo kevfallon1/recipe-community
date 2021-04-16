@@ -9,7 +9,6 @@ const Home = () => {
   useEffect(() => {
     RecipeService.findRandomRecipes()
       .then(response => {
-        console.log(response.recipes)
         return setRandomRecipes(response.recipes)
       })
   }, [""])
@@ -21,7 +20,6 @@ const Home = () => {
 
         {
           randomRecipes.map(recipe => {
-                console.log(recipe.image)
                 return(
                     <div className="recipe-slider">
                       <div className="slider-img-title">

@@ -1,16 +1,27 @@
-import React from 'react'
-import {Link} from "react-router-dom";
+import React, {useState, useEffect} from 'react'
+import {useParams, Link} from "react-router-dom";
+import UserService from "../services/user-service"
+import PublicFollow from "./public-follow";
 
 const Followers = () => {
+  const {userId} = useParams()
+  const [followersUser, setFollowersUser] = useState(null)
 
+  useEffect(() => {
+    if(userId) {
+      UserService.getUserById(userId)
+        .then(user => setFollowersUser(user))
+    }
+  },[])
   return(
       <div className="container">
         <br/>
         <div className="row justify-content-between">
-          <h1>#### Followers</h1>
+          <h1>{followersUser
+            && followersUser.followers.length} Followers</h1>
           <h1>
             <span className="badge badge-secondary">
-              Username
+              {followersUser && followersUser.username}
             </span>
           </h1>
         </div>
@@ -19,9 +30,10 @@ const Followers = () => {
 
         <div>
           <ul className="list-group">
-            <li className="list-group-item">
-              Follower's Username
-            </li>
+            { followersUser &&
+              followersUser.followers.map(follower =>
+              <PublicFollow userId={follower}/>)
+            }
           </ul>
         </div>
 

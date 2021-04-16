@@ -88,3 +88,19 @@
   margin-right: 1rem;
   margin-left: 1rem;
 }
+
+.list-img {
+  max-width: 5rem;
+}
+
+.my-list-item {
+  min-width: 50%;
+}
+
+.post-img {
+  max-width: 8rem;
+}
+
+.post-container {
+  margin-left: 2rem;
+}

@@ -16,12 +16,14 @@ const Login = () => {
       username: username,
       password: password
     }).then(response => {
+      console.log(response)
       if(response.length > 0){
         history.push('/profile')
+        window.location.reload(false)
       } else {
         alert("Username or password incorrect")
       }
-      console.log(response)
+
     })
   }
 
