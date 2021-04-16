@@ -26,7 +26,13 @@ export const createUser = (newUser) =>
         'content-type': 'application/json',
       },
       credentials: 'include'
-    }).then(response => response.json())
+    }).then(response => {
+      try{
+        return response.json()
+      } catch(err) {
+        return "0"
+      }
+    })
 
 export const getCurrentUser = () =>
     fetch(`${URL}/profile`, {

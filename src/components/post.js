@@ -95,21 +95,21 @@ const Post = (post) => {
         </div>
         <div className="row justify-content-end">
           {
-            loggedInUser &&
+            likesCache && loggedInUser &&
             !likesCache.includes(loggedInUser._id) &&
             <button
                 onClick={likePost}
                 className="btn btn-primary">
-              Like: {likesCache.length}
+              Like: {likesCache && likesCache.length}
             </button>
           }
           {
-            loggedInUser &&
+            likesCache && loggedInUser &&
                 likesCache.includes(loggedInUser._id) &&
                 <button
                   onClick={undoLike}
                   className="btn btn-danger">
-                  Undo Like: {likesCache.length}
+                  Undo Like: {likesCache && likesCache.length}
                 </button>
           }
 

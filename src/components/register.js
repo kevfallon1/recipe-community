@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 import UserService from '../services/user-service.js'
 
 const Register = () => {
-
+  const history = useHistory()
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [username, setUsername] = useState("")
@@ -14,12 +14,17 @@ const Register = () => {
     if(!firstName || !lastName || !username || !password) {
       return alert("All fields are required")
     }
-    UserService.createUser({
-      firstName: firstName,
-      lastName: lastName,
-      username: username,
-      password: password,
-    }).then(response => console.log(response))
+    try {
+      UserService.createUser({
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        password: password,
+      }).then(response => console.log(response))
+    } catch(err) {
+      return alert("User already exists")
+    }
+
 
   }
 

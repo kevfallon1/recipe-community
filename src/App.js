@@ -31,7 +31,6 @@ function App() {
     .then(response => {
       setLoggedInUser(null)
     })
-    history.push("/")
   }
 
   return (
@@ -79,6 +78,7 @@ function App() {
             loggedInUser &&
             <div className="navbar-nav">
               <a onClick={logoutUser}
+                 href="/"
                   className="nav-item nav-link float-right">Logout</a>
             </div>
           }

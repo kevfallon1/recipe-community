@@ -55,6 +55,7 @@ const Profile = () => {
     .then(user => setLoggedInUser(user))
   }
 
+  console.log(profileUser)
   return (
       <div className="container">
         <br/>
@@ -101,11 +102,12 @@ const Profile = () => {
         <h3></h3>
         <hr/>
         {
-          loggedInUser && profileUser && profileUser.posts &&
+          profileUser && profileUser.posts &&
           profileUser.posts.map(post =>
-              <Post post={post} loggedInUser={loggedInUser}/>
+              <Post post={post}/>
           )
         }
+
       </div>
   )
 }
