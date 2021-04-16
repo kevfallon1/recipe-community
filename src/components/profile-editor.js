@@ -14,8 +14,7 @@ const ProfileEditor = () => {
 
     UserService.getCurrentUser()
       .then(user => {
-        console.log(user);
-        return setLoggedInUser(user[0])
+        setLoggedInUser(user[0])
       })
 
     },[])
@@ -31,7 +30,7 @@ const ProfileEditor = () => {
     }
     console.log(userRecipes)
 
-    }, [])
+    }, [loggedInUser])
 
   const addPost = () => {
 
@@ -116,8 +115,13 @@ const ProfileEditor = () => {
         {
           loggedInUser && loggedInUser.posts &&
               loggedInUser.posts.map(post =>
-                <PostEditor deletePost={deletePost}
+                  <div>
+                    <button
+                        onClick={() => deletePost(post._id)}
+                        className="btn btn-danger">Delete Post</button>
+                    <PostEditor
                             post={post}/>
+                  </div>
               )
         }
 
