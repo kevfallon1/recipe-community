@@ -14,16 +14,14 @@ const Register = () => {
     if(!firstName || !lastName || !username || !password) {
       return alert("All fields are required")
     }
-    try {
-      UserService.createUser({
-        firstName: firstName,
-        lastName: lastName,
-        username: username,
-        password: password,
-      }).then(response => console.log(response))
-    } catch(err) {
-      return alert("User already exists")
-    }
+
+    UserService.createUser({
+      firstName: firstName,
+      lastName: lastName,
+      username: username,
+      password: password,
+    }).then(response => console.log(response)
+    )
 
 
   }

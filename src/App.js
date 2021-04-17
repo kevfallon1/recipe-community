@@ -15,6 +15,7 @@ import UserService from "./services/user-service";
 import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import DiscoverUsers from "./components/discover-users";
+import Admin from "./components/admin";
 
 function App() {
   const history = useHistory()
@@ -82,6 +83,15 @@ function App() {
                   className="nav-item nav-link float-right">Logout</a>
             </div>
           }
+          {
+            loggedInUser && loggedInUser.type
+              && loggedInUser.type == "admin" &&
+              <div className="navbar-nav">
+                <a
+                 href="/admin"
+                 className="nav-item nav-link float-right">Admin</a>
+              </div>
+          }
         </div>
       </nav>
 
@@ -141,6 +151,11 @@ function App() {
           exact={true}
           path={["/discover-users"]}>
           <DiscoverUsers/>
+        </Route>
+        <Route
+          exact={true}
+          path={["/admin"]}>
+          <Admin/>
         </Route>
       </BrowserRouter>
     </div>
