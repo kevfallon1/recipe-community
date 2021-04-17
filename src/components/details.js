@@ -43,7 +43,7 @@ const Details = () => {
         <img className="details-image" src={recipe.image}/>
 
         {
-          loggedInUser &&
+          loggedInUser && !loggedInUser.savedRecipes.includes(recipeId) &&
           <div>
             <br/>
               <button onClick={() => addRecipeToList()}
