@@ -26,7 +26,6 @@ const Admin = () => {
 
         {
           loggedInUser && loggedInUser.type &&
-              loggedInUser.type == "admin" &&
               <div>
                 <h3>Admin Panel</h3>
                 <ul className="list-group">
