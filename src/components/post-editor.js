@@ -71,12 +71,7 @@ const PostEditor = (post, deletePost) => {
                     className="btn btn-success">Save</button>
 
           }
-          {
-            editing &&
-                <button
-                    onClick={deletePost}
-                    className="btn btn-danger">Delete</button>
-          }
+
         </div>
         <div className="row">
 
