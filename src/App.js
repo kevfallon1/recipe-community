@@ -83,15 +83,7 @@ function App() {
                   className="nav-item nav-link float-right">Logout</a>
             </div>
           }
-          {
-            loggedInUser && loggedInUser.type
-              && loggedInUser.type == "admin" &&
-              <div className="navbar-nav">
-                <a
-                 href="/admin"
-                 className="nav-item nav-link float-right">Admin</a>
-              </div>
-          }
+
         </div>
       </nav>
 

@@ -30,9 +30,17 @@ export const createUser = (newUser) =>
       try{
         return response.json()
       } catch(err) {
-        return "0"
+        return []
       }
     })
+
+export const adminCreateUser = (newUser) =>
+    fetch(`${URL}/admin/create_user`, {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        'content-type': 'application/json',
+      }}).then(response => response.json())
 
 export const getCurrentUser = () =>
     fetch(`${URL}/profile`, {
@@ -99,7 +107,8 @@ const api = {
   addRecipeToUserList,
   updateUser,
   getAllUsers,
-  updatePost
+  updatePost,
+  adminCreateUser
 }
 
 export default api;

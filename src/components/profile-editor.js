@@ -73,6 +73,11 @@ const ProfileEditor = () => {
       <div className="container">
         PROFILE EDITOR
 
+        {
+          loggedInUser && loggedInUser.type && loggedInUser.type === "ADMIN" &&
+              <a href="/admin">To Admin Panel</a>
+        }
+
         <br/>
         <div>
           <h1>{loggedInUser && loggedInUser.username}</h1>

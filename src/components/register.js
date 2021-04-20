@@ -20,8 +20,13 @@ const Register = () => {
       lastName: lastName,
       username: username,
       password: password,
-    }).then(response => console.log(response)
-    )
+    }).then(response => {
+      if(response.length == 0) {
+        return alert("User with given username already exists")
+      } else {
+        history.push("/login")
+      }
+    })
 
 
   }
