@@ -1,5 +1,7 @@
 # recipe-community
 
+### NOTE: Please run the website on Firefox. There are issues with Express Session when used on Chrome and Safari.
+
 ## 1 Problem:
 In today's world where food recipes are taking over the social media platforms, 
 it can be hard to aggregate all your favorite recipes across blogs and apps into one place. It can also be tough to find out more
